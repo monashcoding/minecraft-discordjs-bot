@@ -2,6 +2,7 @@ import { Client, Events, Collection } from "discord.js";
 import type { BotClient, Command } from "./types";
 import { ping } from "./commands/ping";
 import { deployCommands } from "./utils/deployCommands";
+import { deployCommands } from "./utils/deploy-commands";
 import { getConfig } from "./config";
 
 async function main() {
