@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model WhitelistedPlayer {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  minecraftUsername String
+  minecraftUuid     String @unique
+  addedByDiscordId  String
+  addedByUsername   String
+  addedByDisplayName String
+  addedAt           DateTime @default(now())
+  isActive          Boolean @default(true)
+}

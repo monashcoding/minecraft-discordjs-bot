@@ -1,8 +1,9 @@
 import { Client, Events, Collection } from "discord.js";
 import type { BotClient, Command } from "./types";
 import { ping } from "./commands/ping";
-import { deployCommands } from "./utils/deployCommands";
+import { deployCommands } from "./utils/deploy-commands";
 import { getConfig } from "./config";
+import { whitelist } from "./commands/whitelist";
 
 async function main() {
   console.log("Launching Discord Bot...");
@@ -13,7 +14,7 @@ async function main() {
   client.commands = new Collection<string, Command>();
 
   // Register commands
-  const commands: Command[] = [ping];
+  const commands: Command[] = [ping, whitelist];
   commands.forEach((command) => {
     client.commands.set(command.data.name, command);
   });
