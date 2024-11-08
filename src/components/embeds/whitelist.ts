@@ -1,6 +1,6 @@
 import { EmbedBuilder, type APIEmbed } from "discord.js";
 import { WhitelistedPlayer } from "@prisma/client";
-import { MinecraftProfile } from "../../types/minecraft";
+import { MinecraftProfile } from "@/types/minecraft";
 
 export class WhitelistEmbeds {
   static noPermission(): APIEmbed {

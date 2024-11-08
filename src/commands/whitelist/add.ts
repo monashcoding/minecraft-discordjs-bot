@@ -1,8 +1,8 @@
 import { ChatInputCommandInteraction, ComponentType } from "discord.js";
-import { prisma } from "../../utils/database";
-import { WhitelistEmbeds } from "../../components/embeds/whitelist";
-import { createConfirmationButtons } from "../../components/buttons/confirmation";
-import { handlePlayerLookup } from "../../utils/player-lookup";
+import { prisma } from "@/utils/database";
+import { WhitelistEmbeds } from "@/components/embeds/whitelist";
+import { createConfirmationButtons } from "@/components/buttons/confirmation";
+import { handlePlayerLookup } from "@/utils/player-lookup";
 
 export async function handleAdd(interaction: ChatInputCommandInteraction) {
   const result = await handlePlayerLookup(interaction, {

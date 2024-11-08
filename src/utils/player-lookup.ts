@@ -1,8 +1,8 @@
 import { ChatInputCommandInteraction } from "discord.js";
 import { WhitelistedPlayer } from "@prisma/client";
 import { prisma } from "./database";
-import { WhitelistEmbeds } from "../components/embeds/whitelist";
-import type { MinecraftProfile } from "../types/minecraft";
+import { WhitelistEmbeds } from "@/components/embeds/whitelist";
+import type { MinecraftProfile } from "@/types/minecraft";
 import { getMinecraftProfile } from "./mojang-api";
 
 interface PlayerLookupResult {
