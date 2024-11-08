@@ -1,9 +1,9 @@
 import { Client, Events, Collection } from "discord.js";
 import type { BotClient, Command } from "./types";
 import { ping } from "./commands/ping";
-import { whitelist } from "./commands/whitelist";
 import { deployCommands } from "./utils/deploy-commands";
 import { getConfig } from "./config";
+import { whitelist } from "./commands/whitelist";
 
 async function main() {
   console.log("Launching Discord Bot...");
