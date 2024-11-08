@@ -3,12 +3,12 @@ import {
   ChatInputCommandInteraction,
   GuildMemberRoleManager,
 } from "discord.js";
-import type { Command } from "../../types";
 import { WhitelistEmbeds } from "../../components/embeds/whitelist";
 import { handleAdd } from "./add";
 import { handleRemove } from "./remove";
 import { handleCheck } from "./check";
 import { handleList } from "./list";
+import { Command } from "../../types";
 
 export const whitelist: Command = {
   data: new SlashCommandBuilder()

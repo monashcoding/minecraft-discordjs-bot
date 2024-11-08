@@ -27,14 +27,20 @@
     "esModuleInterop": true,
 
     // Specify the output directory for compiled JavaScript files
-    "outDir": "./build",
+    "outDir": "./dist",
 
     // Specify the root directory of TypeScript source files
-    "rootDir": "src"
+    "rootDir": "./src",
+
+    "baseUrl": "./src",
+
+    "paths": {
+      "@/*": ["*"]
+    }
   },
   // Specify the files or patterns to include in the compilation
   "include": ["src/**/*"],
 
   // Specify the files or patterns to exclude from the compilation
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
