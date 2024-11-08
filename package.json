@@ -1,13 +1,14 @@
 {
   "name": "minecraft-discordjs-bot",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "build": "tsc",
     "prestart": "npm run build",
-    "start": "node build/index.ts",
-    "format": "npx prettier . --write",
-    "dev": "nodemon index.ts"
+    "start": "node dist/index.js",
+    "format": "npx prettier . --write '**/*.{ts,tsx,js,jsx,json,md}'",
+    "dev": "nodemon src/index.ts",
+    "check-format": "prettier --check '**/*.{ts,tsx,js,jsx,json,md}'"
   },
   "keywords": [],
   "author": "",
@@ -17,10 +18,12 @@
     "@types/node": "^22.9.0",
     "nodemon": "^3.1.7",
     "prettier": "3.3.3",
+    "prisma": "^5.22.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3"
   },
   "dependencies": {
+    "@prisma/client": "^5.22.0",
     "discord.js": "^14.16.3",
     "dotenv": "^16.4.5"
   }
