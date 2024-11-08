@@ -1,4 +1,4 @@
-import type { MinecraftProfile } from "@/types/minecraft";
+import type { MinecraftProfile } from "../types/minecraft";
 
 export async function getMinecraftProfile(
   username: string,

@@ -1,7 +1,7 @@
 import { ChatInputCommandInteraction, ComponentType } from "discord.js";
-import { prisma } from "@/utils/database";
-import { WhitelistEmbeds } from "@/components/embeds/whitelist";
-import { createPaginationButtons } from "@/components/buttons/pagination";
+import { prisma } from "../../utils/database";
+import { WhitelistEmbeds } from "../../components/embeds/whitelist";
+import { createPaginationButtons } from "../../components/buttons/pagination";
 
 export async function handleList(interaction: ChatInputCommandInteraction) {
   const ITEMS_PER_PAGE = 10;
