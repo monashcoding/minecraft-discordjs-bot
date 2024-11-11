@@ -4,6 +4,8 @@ import { ping } from "./commands/ping";
 import { deployCommands } from "./utils/deploy-commands";
 import { getConfig } from "./config";
 import { whitelist } from "./commands/whitelist";
+import { PterodactylAPI } from "./utils/pterodactyl";
+import { ServerStatusService } from "./services/serverStatus";
 
 async function main() {
   console.log("Launching Discord Bot...");
@@ -12,6 +14,16 @@ async function main() {
   // Initialize client with commands collection
   const client = new Client({ intents: config.intents }) as BotClient;
   client.commands = new Collection<string, Command>();
+
+  // Create Pterodactyl API instance
+  const pterodactyl = new PterodactylAPI(
+    process.env.PTERODACTYL_URL!,
+    process.env.PTERODACTYL_API_KEY!,
+    process.env.PTERODACTYL_SERVER_ID!,
+  );
+
+  // Initialize server status service
+  let statusService: ServerStatusService;
 
   // Register commands
   const commands: Command[] = [ping, whitelist];
@@ -23,6 +35,10 @@ async function main() {
   client.once(Events.ClientReady, (readyClient) => {
     console.log(`Ready! Logged in as ${readyClient.user.tag}`);
     deployCommands(commands, config.token, config.clientId, config.guildId);
+
+    // Start server status monitoring
+    statusService = new ServerStatusService(client, pterodactyl);
+    statusService.start();
   });
 
   // Handle interactions
