@@ -17,3 +17,27 @@ model WhitelistedPlayer {
   addedAt           DateTime @default(now())
   isActive          Boolean @default(true)
 }
+
+model playerStats {
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  uuid          String      @unique
+  username      String
+  playtime      Int
+  achievements  Int
+  blocks        Int
+  deaths        Int
+  distance      Int
+  kills         Int
+  lastUpdated   DateTime
+  rankings      Rankings
+}
+
+type Rankings {
+  playtimeRank     Int
+  achievementsRank Int
+  killsRank        Int
+  deathsRank       Int
+  blocksRank       Int
+  distanceRank     Int
+  lastCalculated   DateTime
+}
