@@ -1,5 +1,6 @@
 import { EmbedBuilder, type APIEmbed } from "discord.js";
 import { playerStats } from "@prisma/client";
+import { getRelativeTime } from "../../utils/date";
 
 interface TopPlayersData {
   playtime: { username: string; playtime: number }[];
@@ -45,8 +46,8 @@ export class StatsEmbeds {
   }
 
   static playerStats(stats: playerStats): APIEmbed {
-    const lastUpdatedTime = stats.lastUpdated.toLocaleString();
-    const rankingsTime = stats.rankings.lastCalculated.toLocaleString();
+    const lastUpdatedTime = getRelativeTime(stats.lastUpdated);
+    const rankingsTime = getRelativeTime(stats.rankings.lastCalculated);
 
     return new EmbedBuilder()
       .setTitle(`📊 Stats for ${stats.username}`)
