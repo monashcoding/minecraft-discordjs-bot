@@ -4,6 +4,7 @@ import { ping } from "./commands/ping";
 import { deployCommands } from "./utils/deploy-commands";
 import { getConfig } from "./config";
 import { whitelist } from "./commands/whitelist";
+import { stats } from "./commands/stats";
 import { PterodactylAPI } from "./utils/pterodactyl";
 import { ServerStatusService } from "./services/serverStatus";
 
@@ -26,7 +27,7 @@ async function main() {
   let statusService: ServerStatusService;
 
   // Register commands
-  const commands: Command[] = [ping, whitelist];
+  const commands: Command[] = [ping, whitelist, stats];
   commands.forEach((command) => {
     client.commands.set(command.data.name, command);
   });
