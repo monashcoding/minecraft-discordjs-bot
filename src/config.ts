@@ -26,6 +26,8 @@ export function getConfig(): Config {
     intents: [
       GatewayIntentBits.Guilds,
       GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.GuildMembers,
+      GatewayIntentBits.GuildPresences,
       GatewayIntentBits.MessageContent,
     ],
   };
